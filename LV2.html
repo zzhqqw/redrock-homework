@@ -5,54 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LV2</title>
-    <style>
-        html body {
-            height: 100%;
+    <title>Document</title>
+    <script>
+        /*let arr = [1, [2, 3],
+                        [4, 5, [6, 7, 8]], 9
+                        ];
+
+                        function numbers() {
+                        return arr.toString();
+                        }
+                        let number = numbers(arr);
+                        console.log(number)*/
+        //结果 [1,2,3,4,5,6,7,8,9]
+        let arr = [1, [2, 3],
+            [4, 5, [6, 7, 8]], 9
+        ];
+
+        function flatten(arr) {
+            let result = [];
+
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i])) {
+                    result = result.concat(flatten(arr[i]));
+                } else {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
         }
-        
-        .box {
-            width: 300px;
-            margin: 100px auto;
-            box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, .3);
-            overflow: hidden;
-            border-radius: 15px 15px 15px 15px;
-            line-height: 110%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .box:hover {
-            transform: scale(1.1);
-        }
-        
-        button:hover {
-            background-color: blue;
-        }
-        
-        .a1 {
-            background-color: aqua;
-            border-radius: 15px 15px 15px 15px;
-            font-size: 20px;
-            border-color: white;
-            font-family: 楷体;
-            display: block;
-            margin: auto;
-        }
-        
-        .a2:hover {
-            transform: scale(1.1);
-        }
-    </style>
+        console.log(flatten(arr));
+    </script>
 </head>
 
 <body>
 
-    <div class="box">
-        <img src="海报.png" title="宣传图" width="300" class="a2" />
-        <!-- 文字内容 -->
-        <p>时间上讲： 10月18日前,由学生会将本次活动通知发送给各年级群,进行 招募。 10月21日之前,大一推选四名选手,大二推选四名选手，大三 推选两名选手参加决赛，并将报名表发送至 834033797@qq.com。 10月22日,由文艺部汇总各年级决赛人员名单(详见附件3); 上报主席团备案。 10月24日,软件工程学院学生会向各班级发送决赛邀请函，各 班级组织学生到场观摩。 决赛:2022年10月28日。
-        </p>
-        <button value="点击" class="a1">点击</button>
-    </div>
 </body>
+
+</html>
